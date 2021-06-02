@@ -1,0 +1,43 @@
+<%- include ('../../layout-base/partials/topo'); %>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Produtos</h1>
+                    
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Produto</th>
+                                            <th>Preco</th>
+                                        </tr>
+                                    </thead>
+                                   
+                                    <tbody>
+                                        <% for (p of produtos) { %>  
+                                            <tr>
+                                                <th><%= p.id %> </th>
+                                                <th><%= p.nome %> </th>
+                                                <th><%= p.preco %></th>
+                                            </tr>
+                                            <% }  %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            <%- include ('../../layout-base/partials/rodape'); %>
