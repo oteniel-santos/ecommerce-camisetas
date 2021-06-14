@@ -1,0 +1,106 @@
+<%- include ('../../layout-base/partials/topo'); %>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">
+        Novo Produto
+    </h1>
+
+    <form 
+        action="/camisetas/"
+        method="POST"
+        class="user col-6"
+        enctype="multipart/form-data"
+    >
+
+    <!-- campos do formulário -->
+    <div>
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" 
+                   name="nome"
+                   class="form-control"
+                   value=" <%- produto.nome %> "
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea name="descricao" 
+                      class="form-control"
+                      value=" <%- produto.descricao %>"  
+                      >
+            </textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Preco</label>
+            <input type="number" 
+                   name="preco"
+                   class="form-control"
+                   value=" <%- produto.preco %> "
+                   placeholder="00,00"
+                   >
+        </div>
+
+        <div>
+            <label>Modelo</label>
+            <select class="form-control mb-3" > 
+                <option selected>Selecione o modelo</option>
+                <option value="1">Masculina</option>
+                <option value="2">Feminina</option>
+                <option value="3">Infantil</option>
+            </select>
+        </div>
+
+        <label> Imagem do Produto</label>
+        <div>
+            <div class="custom-file mb-3">
+                <input type="file"
+                       class="custom-file-input" 
+                       name="imagem" 
+                       id="imagem">
+            <label class="custom-file-label"
+                   for="inputGroupFile01"> 
+                   Escolher Arquivo
+            </label>   
+            </div>
+
+            <div class="row text-center">
+                <img src=""
+                     class="card-img mx-auto"
+                     style="max-width: 18rem;"
+                     id="imagem-produto"   >
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script>
+            $(function(){
+                $('#imagem').change(function(){
+                    const file = $(this)[0].files[0]
+                    const fileReader = new FileReader()
+                    fileReader.onloadend = function(){
+                        $('img').attr('src', fileReader.result)
+                    }
+                    fileReader.readAsDataURL(file)
+                })
+            })
+        </script>
+
+
+    </div>
+    <!-- campos do formulário -->
+
+    <div class="mt-4">
+        <input type="submit"
+               class="btn btn-primary btn-user btn-block"
+               value="Cadastrar"         
+        >
+    </div>   
+  </form>
+    
+</div>
+
+</div>    
+<%- include ('../../layout-base/partials/rodape'); %>

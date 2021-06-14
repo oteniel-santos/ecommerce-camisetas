@@ -21,4 +21,9 @@ function listar(){
     return produtos;
 }
 
-module.exports = {listar}
+function salvar(produto){
+  produtos.push(produto)
+  return produtos
+}
+
+module.exports = {listar, salvar}
